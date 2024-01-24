@@ -5,6 +5,8 @@ import { CiHeart } from "react-icons/ci";
 import { FaShoppingCart } from "react-icons/fa";
 import { RiUserAddFill } from "react-icons/ri";
 import { usePathname } from "next/navigation";
+import { ModeToggle } from "./ui/toggle-btn";
+import { useTheme } from "next-themes";
 interface Links {
   href: string;
   title: string;
@@ -31,8 +33,13 @@ const links: Links[] = [
 
 const NavBar = () => {
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
   return (
-    <nav className="border-gray-200 dark:bg-gray-900 border-b-4">
+    <nav
+      className={`border-gray-200 dark:bg-gray-900 ${
+        theme === "light" ? "border-b-2" : ""
+      }`}
+    >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           href="/"
@@ -86,6 +93,7 @@ const NavBar = () => {
                 </Link>
               </li>
             ))}
+            <ModeToggle />
             <div className="flex flex-row m-1">
               <CiHeart size={22} className="mx-2" />
               <FaShoppingCart size={22} className="mx-2" />
