@@ -81,7 +81,7 @@ const NavBar = () => {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             {links.map((link) => (
-              <li>
+              <li key={link.href}>
                 <Link
                   className={`${
                     pathname === link.href && "text-blue-600"
@@ -103,15 +103,6 @@ const NavBar = () => {
         </div>
       </div>
     </nav>
-
-    // <nav className="flex flex-row space-x-4 w-100">
-    //   <Link href={"/"}>Logo</Link>
-    //   <div>
-    //     {links.map((link) => (
-    //       <Link href={link.href}>{link.title}</Link>
-    //     ))}
-    //   </div>
-    // </nav>
   );
 };
 
