@@ -15,15 +15,16 @@ const words = [
     text: "To",
   },
   {
-    text: "Buy",
-  },
-  {
-    text: "With",
-  },
-  {
-    text: "Shopro!",
+    text: "BuyWithShopro.com!",
     className: "text-blue-500 dark:text-blue-500",
   },
+  // {
+  //   text: "With",
+  // },
+  // {
+  //   text: "Shopro!",
+  //   className: "text-blue-500 dark:text-blue-500",
+  // },
 ];
 
 const projects = [
@@ -72,7 +73,7 @@ export default function Home() {
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col sm:mx-2">
       <div className="flex flex-col items-center justify-center h-[25rem] ">
         <h2 className="text-neutral-600 dark:text-neutral-200  mb-10 text-2xl">
           Find the best resale products here!
@@ -94,9 +95,7 @@ export default function Home() {
       <h1 className="text-center text-3xl font-serif font-semibold text-blue-300">
         Look What our Customers had to Say:
       </h1>
-      <div className="mx-20 mb-10 sm:mx-5">
-        <HoverEffect items={projects} />
-      </div>
+      <HoverEffect items={projects} className="mx-20" />
       <div>
         <GoogleGeminiEffect
           pathLengths={[
